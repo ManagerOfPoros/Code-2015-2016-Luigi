@@ -207,16 +207,18 @@ public class Robot extends IterativeRobot {
     	feederAngle = 0;
     	
     	//camera initialization
-    	try{
-    	camera1 = new USBCamera("cam1");
+    	//try{
+    	//camera1 = new USBCamera("cam1");
     	//camera2 = new USBCamera("cam1");
-    	}
-    	catch(VisionException o){
-    		System.out.println("Error: "+o.getLocalizedMessage());
-    	}
-    	camera1.openCamera();
+    	//}
+    	//catch(VisionException o){
+    	//	System.out.println("Error: "+o.getLocalizedMessage());
+    	//}
+    	//camera1.openCamera();
     	server = CameraServer.getInstance();
-    	frame = NIVision.imaqCreateImage(ImageType.IMAGE_RGB, 0);
+    	server.setQuality(50);
+    	server.startAutomaticCapture("cam1");
+    	//frame = NIVision.imaqCreateImage(ImageType.IMAGE_RGB, 0);
 //    	rect = new Rect(340,330,30,30);//280
     	
         stage = 1;//autonomous Variables
@@ -289,7 +291,7 @@ public class Robot extends IterativeRobot {
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
-    	camera1.startCapture();
+    	//camera1.startCapture();
     	System.out.println("The feeder state is: " + feeder.getMicroswitchState());
     	System.out.println("The shooter state is: " + thrower.getMicroswitchState());
     	//Setting The Variebles 
@@ -311,6 +313,8 @@ public class Robot extends IterativeRobot {
     	ignoreSwitchButton=operatorJoy.getRawButton(8);
     	
     	/**camera code section**/
+    	
+    	
 //    	cameraSwitch=operatorJoy.getRawButton(5);
 //    	if(!cameraSwitch){
 //    		press = false;
@@ -375,6 +379,7 @@ public class Robot extends IterativeRobot {
 				IsReversed = true;
       		if ( flagSetFalse )        
       			IsReversed = false;
+      		
       		tank.CombinedDrive( speedAxis, turnAxis ,scalerAxis , IsReversed);
     	}
     	else {

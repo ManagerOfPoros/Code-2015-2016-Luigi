@@ -39,6 +39,7 @@ public class Tank {
 	 */
 	public void CombinedDrive(double Y, double Z, double S, boolean flag)
 	{
+		//y=0.5 z= 1
 		double left;
 		double right;
 		double s=(S+1)/2;
