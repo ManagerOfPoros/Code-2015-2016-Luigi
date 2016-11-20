@@ -2,11 +2,11 @@
 package org.usfirst.frc.team5554.robot;
 
 
-import com.ni.vision.NIVision;
+//import com.ni.vision.NIVision;
 import com.ni.vision.NIVision.Image;
-import com.ni.vision.NIVision.ImageType;
+//import com.ni.vision.NIVision.ImageType;
 import com.ni.vision.NIVision.Rect;
-import com.ni.vision.VisionException;
+//import com.ni.vision.VisionException;
 
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
